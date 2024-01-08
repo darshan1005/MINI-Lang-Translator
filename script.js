@@ -59,6 +59,12 @@ switchBtn.addEventListener('click', () => {
     getTranslation();
 });
 
+FromTranslateInput.addEventListener('keyup', (e) => {
+    if (FromTranslateInput.value !== '') {
+        getTranslation();
+    }
+});
+
 let getTranslation = () => {
     let text = FromTranslateInput.value;
     let from = fromInput.value;
@@ -77,16 +83,10 @@ let getTranslation = () => {
                 ToTranslateInput.value.innerHTML = "Error";
             });
     }else{
-        ToTranslateInput.value.innerHTML = "INVALID TRANSLATION REQUEST"
+        ToTranslateInput.value = '';
     }
     
 };
-
-FromTranslateInput.addEventListener('keyup', (e) => {
-    if (e.key === 'Enter' && FromTranslateInput.value !== '') {
-        getTranslation();
-    }
-});
 
 let copyFromText = () => {
     if (FromTranslateInput.value !== '') {
